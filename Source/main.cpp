@@ -4,6 +4,7 @@
 #define MOUSE_MOVE_INTERVAL_SECS		2
 
 int main() {
+    int event = 0;
     POINT p;
 
     printf("Mouse mover started. Press Ctrl+C to stop.\n");
@@ -20,8 +21,8 @@ int main() {
         Sleep(100);
 
         SetCursorPos(p.x, p.y);
-
-        printf("Mouse moved. Sleeping %d seconds...\n", MOUSE_MOVE_INTERVAL_SECS);
+	event++;
+        printf("[EVENT_%d] Mouse moved. Sleeping %d seconds...\n", event, MOUSE_MOVE_INTERVAL_SECS);
         Sleep(MOUSE_MOVE_INTERVAL_SECS);
     }
 
