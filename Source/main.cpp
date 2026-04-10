@@ -1,7 +1,7 @@
 #include <windows.h>
 #include <stdio.h>
 
-#define MOUSE_MOVE_INTERVAL_SECS		2
+#define MOUSE_MOVE_INTERVAL_USECS		30000
 
 int main() {
     int event = 0;
@@ -22,8 +22,8 @@ int main() {
 
         SetCursorPos(p.x, p.y);
 	event++;
-        printf("[EVENT_%d] Mouse moved. Sleeping %d seconds...\n", event, MOUSE_MOVE_INTERVAL_SECS);
-        Sleep(MOUSE_MOVE_INTERVAL_SECS);
+        printf("[EVENT_%d] Mouse moved. Sleeping %d seconds...\n", event, MOUSE_MOVE_INTERVAL_USECS/1000);
+        Sleep(MOUSE_MOVE_INTERVAL_USECS);
     }
 
     return 0;
